@@ -60,3 +60,9 @@ input[type="text"] {
   background-color: skyblue;
   color: #fff;
 }
+
+.modal.show {
+  display: block;
+  background-color: #17010845;
+  color: black;
+}
