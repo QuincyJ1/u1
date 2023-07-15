@@ -3,9 +3,13 @@ import { destroy } from "../Functions/localStorage";
 
 export default function Delete({ setDeleteData, deleteData, setLastUpdate }) {
   const doDestroy = (_) => {
-    destroy(KEY, deleteData.id);
-    setDeleteData(null);
-    setLastUpdate(Date.now());
+    if (deleteData.balance === 0) {
+      destroy(KEY, deleteData.id);
+      setDeleteData(null);
+      setLastUpdate(Date.now());
+    } else {
+      alert("There is money in this account. You can't delete it.");
+    }
   };
 
   return (
