@@ -25,7 +25,7 @@ export default function Delete({ setDeleteData, deleteData, setLastUpdate }) {
             ></button>
           </div>
           <div className="modal-body">
-            <p>Are you really want to delete this bank account?</p>
+            <p>Are you sure you want to delete this BANK ACCOUNT?</p>
           </div>
           <div className="modal-footer">
             <button

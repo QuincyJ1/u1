@@ -14,7 +14,7 @@ function App() {
   const [amount, setAmount] = useState(0);
   const [accounts, setAccounts] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
-
+  const [selectedAccount, setSelectedAccount] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
 
   const handleCreate = (_) => {
@@ -110,9 +110,14 @@ function App() {
                             {account.name + " "}
                             {account.lastName}
                           </td>
-                          <td>{account.balance}</td>
+                          <td>${account.balance}</td>
                           <td>
-                            <input type="number" value={account.amount} />
+                            <input
+                              type="number"
+                              min="0"
+                              value={account.amount}
+                              placeholder="Money"
+                            />
                           </td>
                           <td>
                             <button className="green small">Add Funds</button>
