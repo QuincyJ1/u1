@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
+const KEY = "accounts";
+
 const read = key => {
     const value = localStorage.getItem(key);
     if (null === value) {
@@ -42,3 +44,18 @@ export const update = (key, id, value) => {
     });
     write(key, newItems);
 }
+export const getAccounts = () => {
+    const accountsJSON = localStorage.getItem(KEY);
+    return JSON.parse(accountsJSON);
+  };
+
+  export const updateAccountBalance = (accountId, newBalance) => {
+    const accounts = getAccounts();
+    const updatedAccounts = accounts.map((account) => {
+      if (account.id === accountId) {
+        account.balance = newBalance;
+      }
+      return account;
+    });
+    localStorage.setItem(KEY, JSON.stringify(updatedAccounts));
+  };
